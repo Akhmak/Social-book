@@ -1,0 +1,264 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #d6e8ff;
+  color: #0f172a;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 28px 16px 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.diary {
+  width: min(980px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.diary__title {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(110, 168, 255, 0.35);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+}
+
+.panel__row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.input {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.75);
+  min-width: 340px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.btn {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.05s ease, filter 0.15s ease, opacity 0.15s ease,
+    background 0.15s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+.btn--danger {
+  background: #e11d48;
+  color: #fff;
+}
+
+.btn--danger:hover {
+  filter: brightness(1.05);
+}
+
+.btn--ghost {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  color: #0f172a;
+}
+
+.btn--small {
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.btn[disabled] {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.post {
+  background: #fff;
+  border: 1px solid rgba(110, 168, 255, 0.55);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.post__titleBox {
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  border-radius: 14px;
+  padding: 10px 12px;
+  background: rgba(230, 244, 255, 0.35);
+}
+
+.post__titleText {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #0f172a;
+}
+
+.post__actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.post__comments {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  border-radius: 14px;
+  padding: 10px 12px;
+}
+
+.comment__text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.comment__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.textarea {
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.8);
+  padding: 10px 12px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  min-height: 120px;
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: rgba(99, 102, 241, 0.8);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.modal {
+  width: min(720px, 100%);
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(110, 168, 255, 0.55);
+  box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.modal__close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.55);
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 34px;
+}
+
+.modal__body {
+  padding: 16px;
+}
+
+.modal__footer {
+  padding: 14px 16px 16px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid rgba(148, 163, 184, 0.45);
+}
+
