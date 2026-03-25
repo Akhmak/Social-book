@@ -64,7 +64,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { ref } from 'vue';
 import { usePostsStore } from '../stores/posts';
 import Modal from './Modal.vue';
 import BaseButton from './BaseButton.vue';
@@ -78,7 +78,8 @@ const props = defineProps({
 
 const store = usePostsStore();
 
-const isShowComments = ref(false);
+// Если в посте уже есть комментарии, показываем их при открытии страницы.
+const isShowComments = ref(Array.isArray(props.post?.comments) && props.post.comments.length > 0);
 
 const isEditOpen = ref(false);
 const editText = ref('');
